@@ -76,7 +76,7 @@ export default function DocLobby() {
     console.log(data);
     // Redirect to the Doctor with the given ID
     Navigate(`/Doctor/${PID}`);
-    
+
 
   }, [Navigate]);
   useEffect(() => {
@@ -87,65 +87,130 @@ export default function DocLobby() {
   }, [socket, handleJoinRoom]);
 
   return (
-    <div className="container">
-      <h2>Connect to Doctor</h2>
-      <div
-        className="formSub "
-        style={{
-          width: "400px",
-          justifyContent: "center",
-          alignContent: "center",
-          display: "flex",
-        }}
-      >
-        <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-          onSubmit={handleSubmit}
-        >
-          <label htmlFor="patientName">Name</label>
-          <input
-            type="text"
-            name="patientName"
-            id="patientName"
-            value={patientName}
-            onChange={(e) => {
-              setPatientName(e.target.value);
-            }}
-          />
-          <label htmlFor="patientEmail">Email</label>
-          <input
-            type="email"
-            name="patientEmail"
-            id="patientEmail"
-            value={patientEmail}
-            onChange={(e) => {
-              setPatientEmail(e.target.value);
-            }}
-          />
-          <label htmlFor="patientID">PatinetId</label>
-          <input
-            type="text"
-            name="patientID"
-            id="patientID"
-            value={patientID}
-            readOnly
-            onFocus={() => {
-              pid();
-            }}
-            onChange={(e) => {
-              pid();
-              setPatientID(e.target.value);
-            }}
-          />
-          <button type="submit" class="btn btn-primary">
+    <>
+      <div className="form-container   flex justify-center">
+        <form class="max-w-sm mx-auto " onSubmit={handleSubmit}>
+          <div class="mb-5">
+            <label
+              for="email"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Patient Name
+            </label>
+            <input
+              type="text"
+              name="patientName"
+              id="patientName"
+              value={patientName}
+              onChange={(e) => {
+                setPatientName(e.target.value);
+              }}
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+          <div class="mb-5">
+            <label
+              htmlFor="patientEmail"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Patient Email
+            </label>
+            <input
+              type="email"
+              name="patientEmail"
+              id="patientEmail"
+              value={patientEmail}
+              onChange={(e) => {
+                setPatientEmail(e.target.value);
+              }}
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Enter your email address"
+              required
+            />
+          </div>
+          <div class="mb-5">
+            <label
+              htmlFor="patientEmail"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Patient Id
+            </label>
+            <input
+              type="text"
+              name="patientID"
+              id="patientID"
+              value={patientID}
+              readOnly
+              onFocus={() => {
+                pid();
+              }}
+              onChange={(e) => {
+                pid();
+                setPatientID(e.target.value);
+              }}
+              class="bg-gray-500 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
             Submit
           </button>
         </form>
       </div>
-    </div>
+
+      {/*   <form
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+        onSubmit={handleSubmit}
+      >
+        <label htmlFor="patientName">Name</label>
+        <input
+          type="text"
+          name="patientName"
+          id="patientName"
+          value={patientName}
+          onChange={(e) => {
+            setPatientName(e.target.value);
+          }}
+        />
+        <label htmlFor="patientEmail">Email</label>
+        <input
+          type="email"
+          name="patientEmail"
+          id="patientEmail"
+          value={patientEmail}
+          onChange={(e) => {
+            setPatientEmail(e.target.value);
+          }}
+        />
+        <label htmlFor="patientID">PatinetId</label>
+        <input
+          type="text"
+          name="patientID"
+          id="patientID"
+          value={patientID}
+          readOnly
+          onFocus={() => {
+            pid();
+          }}
+          onChange={(e) => {
+            pid();
+            setPatientID(e.target.value);
+          }}
+        />
+        <button type="submit" class="btn btn-primary">
+          Submit
+        </button>
+      </form> */}
+    </>
   );
 }

@@ -27,6 +27,7 @@ export default function Doctor() {
        <h1>Doctor</h1>
        <h4>
        {remoteSocketId ? "connected ":"No one in room"} </h4>
+       {remoteSocketId && <button onClick={() => Navigate(`/doctor/${remoteSocketId}`)}>Call</button>}
        
 
        
